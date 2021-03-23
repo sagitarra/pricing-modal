@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Link Tracker</title>
+
+    <style>
+        /* colors
+        #5fa624 green button
+        #5fa625 green hover
+        #9976b0 red button
+        #eb4f4b pinkish
+        #04080b dark grey
+        #2ea3f2 skype blue
+        #1da1f2 hover blue
+        #547ec0 sky blue  */
+        body{
+            font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+            color: #03090b;
+        }
+        h2{
+            font-weight: 600;
+            font-size: 24px;
+        }
+        p{
+
+        }
+        .greentagline{
+            color:#5fa624;
+        }
+
+        .center{
+            text-align: center;
+            margin: 7px auto;
+        }
+
+
+        .container{
+            max-width:800px;
+            background: #eee;
+            padding: 2%;
+            margin: auto;
+
+        }
+
+        .block{
+            max-width:400px;
+            background: #fff;
+            padding: 2%;
+            margin: auto;
+        }
+        .greenblock{
+            background-color: #5fa624;
+        }
+        .inputblock{
+            display:inline-block;
+        }
+        .tierblock{
+            width: 22%;
+            display:inline-block;
+            padding:1%;
+            text-align:center;
+        }
+        #viewspermonth{
+
+        }
+        #linktrackerprice{
+
+        }
+
+        .tierprice{
+            height: 30px;
+            width: 95%;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ezoic Simple Link Tracker</h2>
+        <h4 class="greentagline">IMPROVE REVENUE, UX, & DECISION-MAKING USING A.I.</h4>
+        <p>
+            Ezoic Simple Link Tracker finds the key identifiers in each of your visitors.
+            With every visit, you will acquire the most important information to amplify your traffic conversions.
+            Simply, our A.I. widget will drive your gadget or gizmo to the top of the heap!
+        </p>
+        <p>
+            Use our Simple Link Tracker value meter to find out how mere pennies will put dollars into your pocket...
+        </p>
+        <p>
+            To use the value meter, just enter your Google Analytics pageview number in the left
+            input block and get your actual monthly cost on the right...
+        </p>
+        <div class="block greenblock">
+
+            <div class="inputblock">
+                <form>
+                    <input id="viewspermonth" placeholder="enter pageviews" title="Enter pageviews here">
+                    <input type="button" value="Go" onclick="getprice()">
+                    <input id="linktrackerprice" placeholder="get price" title="Get price here">
+                </form>
+
+            </div>
+        </div>
+        <p>
+            Also, you can check our tiered pricing and save money for bigger accounts.
+        </p>
+
+        <div class=" greenblock ">
+            <div class="tierblock">
+
+
+                <p>
+                    Free Always
+                </p>
+                <p>
+                    You only pay 0.25 per visit
+                </p>
+
+                <p id="tierfree" class="tierprice">
+
+            </div>
+            <div class="tierblock">
+
+                <p>
+                    Basic
+                </p>
+                <p>
+                    25.00 USD First 100 free and 0.17 per visit
+                </p>
+
+
+                <p id="tierone" class="tierprice"></p>
+
+            </div>
+            <div class="tierblock">
+                <p>
+                    Pro
+                </p>
+                <p>
+                    39.00 USD First 500 free and .01 per visit
+                </p>
+
+                <p id="tiertwo" class="tierprice"></p>
+
+            </div>
+            <div class="tierblock">
+
+                <p>
+                    Ultra
+                </p>
+                <p>
+                   Over 5000 for 53.00 USD Always
+                </p>
+
+                <p id="tierthree" class="tierprice"></p>
+
+            </div>
+        </div>
+        <p>
+            Where do I find my pageview number? Click <a href="https://www.youtube.com/watch?v=2TgdlWhMZAw" target="_blank">HERE</a>
+        </p>
+        <p>
+            What is Google Analytics? Click <a href="https://support.google.com/analytics/answer/1008015?hl=en" target="_blank">HERE</a>
+        </p>
+
+    </div>
+<script>
+    function getprice(){
+
+    let viewspermonth = document.getElementById("viewspermonth").value;
+    let linktrackerprice = document.getElementById("linktrackerprice");
+    let priceperview = 0.00;
+    let price = 0.00;
+    let tierfree = document.getElementById("tierfree");
+    let tierone = document.getElementById("tierone");
+    let tiertwo = document.getElementById("tiertwo");
+    let tierthree = document.getElementById("tierthree");
+        let justprice = 0.00;
+
+
+        if (viewspermonth < 100){
+            priceperview = 0.25;
+
+            price = viewspermonth * priceperview;
+            linktrackerprice.value = price.toFixed(2) + " USD per Month";
+            tierfree.innerHTML = price.toFixed(2) + " USD";
+            tierone.innerHTML = "25.00 USD";
+            tiertwo.innerHTML = "39.00 USD";
+            tierthree.innerHTML = "53.00 USD";
+        }
+        if (viewspermonth > 99 && viewspermonth < 500){
+            priceperview = 0.17;
+
+
+            price = viewspermonth * 0.25;
+            tierfree.innerHTML = price.toFixed(2) + " USD";
+
+            viewspermonth = viewspermonth - 100;
+            price =  25 + viewspermonth * 0.17;
+            tierone.innerHTML = price.toFixed(2) + " USD";
+            linktrackerprice.value = price.toFixed(2) + " USD per Month";
+            tiertwo.innerHTML = "39.00 USD";
+            tierthree.innerHTML = "53.00 USD";
+
+        }
+        if (viewspermonth > 499 && viewspermonth < 5000){
+            priceperview = 0.01;
+
+
+            price = viewspermonth * 0.25;
+            tierfree.innerHTML = price.toFixed(2) + " USD";
+
+            viewspermonth = viewspermonth - 100;
+            price =  25 + viewspermonth * 0.17;
+            tierone.innerHTML = price.toFixed(2) + " USD";
+
+            viewspermonth = viewspermonth - 100;
+            price =  39 + viewspermonth * 0.01;
+            tiertwo.innerHTML = price.toFixed(2) + " USD";
+
+
+            tierthree.innerHTML = "53.00 USD";
+            linktrackerprice.value = "53.00 USD per Month";
+
+        }
+        if (viewspermonth > 4999){
+            priceperview = 0.005;
+            justprice = viewspermonth * priceperview;
+            linktrackerprice.value = justprice.toFixed(2) + " USD per Month";
+            price = viewspermonth * 0.25;
+            tierfree.innerHTML = price.toFixed(2) + " USD";
+
+            viewspermonth = viewspermonth - 100;
+            price =  25 + viewspermonth * 0.17;
+            tierone.innerHTML = price.toFixed(2) + " USD";
+
+            viewspermonth = viewspermonth - 100;
+            price =  39 + viewspermonth * 0.01;
+            tiertwo.innerHTML = price.toFixed(2) + " USD";
+
+
+            tierthree.innerHTML = "53.00 USD";
+
+        }
+
+
+
+
+
+    }
+</script>
+</body>
+</html>
